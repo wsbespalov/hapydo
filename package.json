@@ -1,0 +1,35 @@
+{
+  "name": "hapydo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wsbespalov/hapydo.git"
+  },
+  "author": "bda82",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wsbespalov/hapydo/issues"
+  },
+  "homepage": "https://github.com/wsbespalov/hapydo#readme",
+  "dependencies": {
+    "hapi": "^17.6.0",
+    "hapi-pino": "^5.1.0",
+    "hapi-routes": "^5.0.0",
+    "inert": "^5.1.0",
+    "ip": "^1.1.5",
+    "mongoose": "^5.3.1",
+    "nodemon": "^1.18.4",
+    "path": "^0.12.7",
+    "dotenv": "^6.0.0",
+    "boom": "^7.2.0"
+  },
+  "devDependencies": {
+    "nodemon": ""
+  }
+}
