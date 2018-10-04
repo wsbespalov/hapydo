@@ -17,23 +17,38 @@ var validateCompleteBefore = (x) => {validateDate(x)};
 
 
 const list = async (request, reply) => {
-    return 'list';
+    console.log(`[+] List all elements`)
+    return await Todo.find({})
+        .then((elements) => {
+            return reply.response(elements)
+        })
+        .catch((error) => {
+            throw Boom.badRequest(`Cannor reat any data`);
+        });
 };
 
 
 const get = async (request, reply) => {
-    let id = request.params.id;
-    if (ALLOW_CONSOLE) console.log(`[+] Get element with id: ${id}`);
-    return 'get';
+    console.log('query: ', request.query);
+    let id = request.query.id;
+    console.log(`[+] Get element with id: ${id}`);
+    return await Todo.findById(id).exec()
+        .then((todo) => {
+            if (!todo) reply.response(`Cannot get element with id: ${id}`).status(500);
+            return reply.response(todo).status(200);
+        })
+        .catch((error) => {
+            reply.response(error).status(500);
+        })
 };
 
 
 const create = async (request, reply) => {
     console.log('[+] Create element');
-    let title = validateTitle(request.params.title);
-    let content = validateContent(request.params.content);
-    let created_at = validateCreatedAt(request.params.created_at);
-    let complete_before = validateCompleteBefore(request.params.complete_before);
+    let title = validateTitle(request.query.title);
+    let content = validateContent(request.query.content);
+    let created_at = validateCreatedAt(request.query.created_at);
+    let complete_before = validateCompleteBefore(request.query.complete_before);
     let obj = {
         title: title,
         content: content,
@@ -45,20 +60,20 @@ const create = async (request, reply) => {
             return reply.response(todo)
         })
         .catch((error) => {
-            throw Boom.badRequest(`Cannot create obkect with title ${title}`);
+            return reply.response(`Can not create object with title ${title}`).status(500);
         });
 };
 
 
 const update = async (request, reply) => {
-    let id = request.params.id;
+    let id = request.query.id;
     console.log(`[+] Update element with id: ${id}`);
     return 'update';
 };
 
 
 const remove = async (request, reply) => {
-    let id = request.params.id;
+    let id = request.query.id;
     console.log(`[+] Remove element with id: ${id}`);
     return 'remove';
 };

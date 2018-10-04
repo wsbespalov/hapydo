@@ -1,5 +1,7 @@
 'use strict';
 
+const todoController = require('../controllers/todo.controller');
+
 module.exports = {
     name: "list",
     register: async (server) => {
@@ -9,7 +11,7 @@ module.exports = {
             options: {
                 auth: false,
                 handler: async (request, reply) => {
-                    return 'list';
+                    return await todoController.list(request, reply);
                 }
             },
         })

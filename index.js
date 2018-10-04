@@ -6,7 +6,7 @@ const Hapi = require('hapi');
 const Routes = require('./src/routes');
 const Path = require('path');
 const mongoose = require('mongoose');
-const mongoDbUri = process.env.MONGO_DB_URI;
+const mongoDbUri = process.env.MONGO_DB_URI || "mongodb://localhost:27017/todos";
 
 const server = Hapi.server({
     host: 'localhost',
