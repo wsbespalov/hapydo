@@ -15,15 +15,18 @@ var validateContent = (x) => {return validateString(x)};
 var validateCreatedAt = (x) => {validateDate(x)};
 var validateCompleteBefore = (x) => {validateDate(x)};
 
+
 const list = async (request, reply) => {
     return 'list';
 };
+
 
 const get = async (request, reply) => {
     let id = request.params.id;
     if (ALLOW_CONSOLE) console.log(`[+] Get element with id: ${id}`);
     return 'get';
 };
+
 
 const create = async (request, reply) => {
     console.log('[+] Create element');
@@ -46,11 +49,13 @@ const create = async (request, reply) => {
         });
 };
 
+
 const update = async (request, reply) => {
     let id = request.params.id;
     console.log(`[+] Update element with id: ${id}`);
     return 'update';
 };
+
 
 const remove = async (request, reply) => {
     let id = request.params.id;
