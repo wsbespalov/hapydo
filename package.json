@@ -18,11 +18,15 @@
   },
   "homepage": "https://github.com/wsbespalov/hapydo#readme",
   "dependencies": {
-    "hapi": "^17.6.0",
-    "hapi-pino": "^5.1.0",
-    "hapi-routes": "^5.0.0",
-    "inert": "^5.1.0",
     "ip": "^1.1.5",
+    "joi": "^13.7.0",
+    "hapi": "^17.6.0",
+    "bell": "^9.3.1",
+    "hapi-pino": "^5.1.0",
+    "hapi-error": "^2.1.0",
+    "hapi-routes": "^5.0.0",
+    "hapi-auth-basic": "^5.0.0",
+    "inert": "^5.1.0",
     "mongoose": "^5.3.1",
     "nodemon": "^1.18.4",
     "path": "^0.12.7",
@@ -30,6 +34,6 @@
     "boom": "^7.2.0"
   },
   "devDependencies": {
-    "nodemon": ""
+    "nodemon": "^1.18.4"
   }
 }
